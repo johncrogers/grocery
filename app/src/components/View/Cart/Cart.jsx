@@ -5,7 +5,7 @@ class Cart extends React.Component {
     super(props);
     this.state = {
       departmentList: [],
-      selectedDepartment: null
+      selectedDepartment: ""
     };
     this.buildDepartmentList = this.buildDepartmentList.bind(this);
     this.removeIngredientFromList = this.removeIngredientFromList.bind(this);
@@ -59,7 +59,11 @@ class Cart extends React.Component {
         >
           <option value="remove">Select a department...</option>
           {this.state.departmentList.map(department => {
-            return <option value={department}>{department}</option>;
+            return (
+              <option value={department} key={department}>
+                {department}
+              </option>
+            );
           })}
         </select>
         <table>
@@ -67,7 +71,7 @@ class Cart extends React.Component {
             {this.props.user.ingredients.map(ingredient => {
               if (!this.props.view.department) {
                 return (
-                  <tr>
+                  <tr key={ingredient.name}>
                     <td>{ingredient.name}</td>
                     <td>{ingredient.price}</td>
                     <td>{ingredient.department}</td>
@@ -85,7 +89,7 @@ class Cart extends React.Component {
               } else {
                 if (ingredient.department === this.props.view.department) {
                   return (
-                    <tr>
+                    <tr key={ingredient.name}>
                       <td>{ingredient.name}</td>
                       <td>{ingredient.price}</td>
                       <td>{ingredient.department}</td>
