@@ -30,7 +30,12 @@ class Index extends React.Component {
     // console.log(`Render Index`, this.props);
     return (
       <div>
-        <Nav view={this.state.view} user={this.state.user} />
+        <Nav
+          view={this.state.view}
+          user={this.state.user}
+          updateView={this.updateView}
+          updateUser={this.updateUser}
+        />
         <View
           view={this.state.view}
           user={this.state.user}
