@@ -17,10 +17,15 @@ class Index extends React.Component {
       }
     };
     this.updateView = this.updateView.bind(this);
+    this.updateUser = this.updateUser.bind(this);
   }
   updateView(newView) {
     this.setState({ view: newView });
   }
+  updateUser(newUser) {
+    this.setState({ user: newUser });
+  }
+
   render() {
     // console.log(`Render Index`, this.props);
     return (
@@ -30,6 +35,7 @@ class Index extends React.Component {
           view={this.state.view}
           user={this.state.user}
           updateView={this.updateView}
+          updateUser={this.updateUser}
         />
       </div>
     );
