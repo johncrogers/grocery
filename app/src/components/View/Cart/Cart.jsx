@@ -1,6 +1,4 @@
 import React from "react";
-import Select from "../../common/form/Select/Select.jsx";
-import Table from "../../common/Table.jsx";
 
 class Cart extends React.Component {
   constructor(props) {
