@@ -1,4 +1,4 @@
-var knex = require('knex')({
+var conn = require('knex')({
   client: 'pg',
   version: '7.4.3',
   connection: {
@@ -9,4 +9,4 @@ var knex = require('knex')({
   }
 });
 
-export default knex;
+export default conn;
