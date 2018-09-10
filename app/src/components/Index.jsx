@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import ingredients from "../../../db/sampleData/ingredients.js";
-import Nav from "./common/_custom/Nav/Nav.jsx";
+import Nav from "./Nav/Nav.jsx";
 import View from "./View/View.jsx";
 
 class Index extends React.Component {
@@ -27,7 +27,6 @@ class Index extends React.Component {
   }
 
   render() {
-    // console.log(`Render Index`, this.props);
     return (
       <div>
         <Nav
