@@ -44,13 +44,8 @@ class Cart extends React.Component {
     this.buildDepartmentList(this.props.user.ingredients);
   }
   render() {
-    // console.log(`Render Cart`);
-    // console.log(" -> Props: ", this.props);
-    // console.log(" -> State: ", this.state);
     return (
       <div>
-        {/* <Select />
-        <Table /> */}
         <select
           name=""
           id="departmentSelector"
