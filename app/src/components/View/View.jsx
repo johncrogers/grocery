@@ -18,7 +18,13 @@ class View extends React.Component {
       // return <OptionalComponent />;
 
       default:
-        return <Cart view={this.props.view} user={this.props.user} />;
+        return (
+          <Cart
+            view={this.props.view}
+            user={this.props.user}
+            updateView={this.props.updateView}
+          />
+        );
     }
   }
 }
