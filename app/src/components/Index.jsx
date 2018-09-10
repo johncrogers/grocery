@@ -1,42 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ListView from "./ListView/ListView.jsx";
 import ingredients from "../../../db/sampleData/ingredients.js";
+import Nav from "./common/Nav/Nav.jsx";
+import View from "./View/View.jsx";
 
 class Index extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ingredients: ingredients
+      view: {
+        show: "Cart"
+      },
+      user: {
+        ingredients: ingredients
+      }
     };
   }
   render() {
-    console.log(`Render Index`, this.props);
+    // console.log(`Render Index`, this.props);
     return (
       <div>
-        <h1>LIST:</h1>
-        {/* <button
-          onClick={() => {
-            console.log(this.state);
-          }}
-        >
-          Index State
-        </button>
-        <button
-          onClick={() => {
-            console.log(this.props);
-          }}
-        >
-          Index Props
-        </button> */}
-        {/* <ListView /> */}
-        {this.state.ingredients.map(ingredient => {
-          return (
-            <div key={ingredient.name}>
-              {ingredient.name} - {ingredient.price}
-            </div>
-          );
-        })}
+        <Nav view={this.state.view} user={this.state.user} />
+        <View view={this.state.view} user={this.state.user} />
       </div>
     );
   }
