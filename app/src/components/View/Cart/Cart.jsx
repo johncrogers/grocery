@@ -8,6 +8,7 @@ class Cart extends React.Component {
       selectedDepartment: null
     };
     this.buildDepartmentList = this.buildDepartmentList.bind(this);
+    this.removeIngredientFromList = this.removeIngredientFromList.bind(this);
     this.handleSelectedDepartmentChange = this.handleSelectedDepartmentChange.bind(
       this
     );
@@ -29,9 +30,15 @@ class Cart extends React.Component {
       } else {
         newView.department = this.state.selectedDepartment;
       }
-      console.log(`newView:`, newView);
       this.props.updateView(newView);
     });
+  }
+  removeIngredientFromList(targetIngredient) {
+    let newUser = this.props.user;
+    newUser.ingredients = newUser.ingredients.filter(ingredient => {
+      return ingredient.name !== targetIngredient;
+    });
+    this.props.updateUser(newUser);
   }
   componentDidMount() {
     this.buildDepartmentList(this.props.user.ingredients);
@@ -51,7 +58,6 @@ class Cart extends React.Component {
           value={this.state.selectedDepartment}
         >
           <option value="remove">Select a department...</option>
-          <option value="remove">Remove Filter</option>
           {this.state.departmentList.map(department => {
             return <option value={department}>{department}</option>;
           })}
@@ -65,6 +71,15 @@ class Cart extends React.Component {
                     <td>{ingredient.name}</td>
                     <td>{ingredient.price}</td>
                     <td>{ingredient.department}</td>
+                    <td>
+                      <button
+                        onClick={() => {
+                          this.removeIngredientFromList(ingredient.name);
+                        }}
+                      >
+                        Found
+                      </button>
+                    </td>
                   </tr>
                 );
               } else {
@@ -74,6 +89,15 @@ class Cart extends React.Component {
                       <td>{ingredient.name}</td>
                       <td>{ingredient.price}</td>
                       <td>{ingredient.department}</td>
+                      <td>
+                        <button
+                          onClick={() => {
+                            this.removeIngredientFromList(ingredient.name);
+                          }}
+                        >
+                          Found
+                        </button>
+                      </td>
                     </tr>
                   );
                 }
