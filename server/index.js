@@ -14,7 +14,7 @@ server.get("/", (request, response) => {
   response.sendFile(path.join(`${__dirname}/../app/dist/index.html`));
 });
 
-server.use('/cart', cartRouter);
+server.use('/api/cart', cartRouter);
 
 server.listen(port, function () {
   console.log(`listening on port ${port}!`);
