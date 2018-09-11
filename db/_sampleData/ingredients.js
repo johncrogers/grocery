@@ -1,4 +1,4 @@
-let ingredients = [{
+module.exports.data = [{
     name: "Cashew",
     price: 7.97,
     department: "Produce",
@@ -129,7 +129,6 @@ let ingredients = [{
     department: "Produce",
   },
 ]
-export default ingredients;
 
 // fruit
 // veggie

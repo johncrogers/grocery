@@ -7,7 +7,7 @@ module.exports.createTable = () => {
     table.string('name');
     table.string('department');
     table.string('note');
-    table.integer('price');
+    table.decimal('price');
   }).then(() => {
     console.log(`Table 'ingredients' created.`);
   }).catch((err) => {

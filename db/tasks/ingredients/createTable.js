@@ -1,2 +1,2 @@
-const ingredients = require('../../migrations/ingredients.js');
+const ingredients = require('../../schemas/ingredients.js');
 ingredients.createTable();
