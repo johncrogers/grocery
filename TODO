@@ -1,8 +1,28 @@
-NOTES:
+TODO:
   ☐ Color code departments
-  ☐ Build services
+  ☐ Change note field in ingredients to purchasingNote
 
 FEATURES:
-  ☐ List:
-  ☐ Menu:
-    ☐ 
+  ☐ List: Organize shopping for ingredients.
+    ☐ Skip button.
+    ☐ STRETCH:
+      ☐ Volume of ingredient to buy.
+  ☐ Menu: Build dish / meal recipes.
+    ☐ Dishes:
+      ☐ Ingredient:
+        ☐ Volume
+        ☐ Prep notes
+    ☐ STRETCH:
+      ☐ Recipe:
+        ☐ Cooking instructions
+        ☐ Cooking planner
+  ☐ Prep:
+    ☐ Search by ingredient to see relevant recipe.
+    ☐ STRETCH:
+      ☐ Dishes
+      ☐ Ingredients
+  ☐ Plan: Build meal plans.
+    ☐ STRETCH:
+      ☐ Dishes
+      ☐ Meals
+      ☐ Times
