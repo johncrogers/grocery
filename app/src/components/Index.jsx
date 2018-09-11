@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ingredients from "../../../db/sampleData/ingredients.js";
+import ingredients from "../../../db/_sampleData/ingredients.js";
 import Nav from "./Nav/Nav.jsx";
 import View from "./View/View.jsx";
 
