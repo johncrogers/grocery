@@ -40,7 +40,7 @@ class Cart extends React.Component {
     });
     this.props.updateUser(newUser);
   }
-  componentDidMount() {
+  componentWillReceiveProps() {
     this.buildDepartmentList(this.props.user.ingredients);
   }
   render() {
