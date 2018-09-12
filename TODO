@@ -4,7 +4,9 @@ TODO:
 
 FEATURES:
   ☐ List: Organize shopping for ingredients.
-    ☐ Skip button.
+    ☐ Skip button:
+      ☐ Make "cart"
+      ☐ Make skip button removes it from shopping list
     ☐ STRETCH:
       ☐ Volume of ingredient to buy.
   ☐ Menu: Build dish / meal recipes.
