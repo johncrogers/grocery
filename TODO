@@ -1,30 +1,47 @@
+BUGS:
+
+FIX:
+  ☐ .gitignore
+    ☐ Don't ignore:
+      ☐ package.json
+      ☐ .gitignore
+  ☐ Include a README for getting the repo setup.
+  ☐ Modularize the env variables.
+
 TODO:
-  ☐ Color code departments
   ☐ Change note field in ingredients to purchasingNote
 
 FEATURES:
-  ☐ List: Organize shopping for ingredients.
-    ☐ Skip button:
-      ☐ Make "cart"
-      ☐ Make skip button removes it from shopping list
-    ☐ STRETCH:
+  LIST:
+    Organize shopping for ingredients.
+    current:
+      ☐ Skip button:
+        ☐ Make "cart"
+        ☐ Make skip button removes it from shopping list
+      ☐ Color code departments
+    stretch:
       ☐ Volume of ingredient to buy.
-  ☐ Menu: Build dish / meal recipes.
-    ☐ Dishes:
-      ☐ Ingredient:
-        ☐ Volume
-        ☐ Prep notes
-    ☐ STRETCH:
+  MENU: 
+    Build dish / meal recipes.
+    current:
+      ☐ Dishes:
+        ☐ Ingredient:
+          ☐ Volume
+          ☐ Prep notes
+    stretch:
       ☐ Recipe:
         ☐ Cooking instructions
         ☐ Cooking planner
-  ☐ Prep:
-    ☐ Search by ingredient to see relevant recipe.
-    ☐ STRETCH:
+  PREP:
+    current:
+      ☐ Search by ingredient to see relevant recipe.
+    stretch:
       ☐ Dishes
       ☐ Ingredients
-  ☐ Plan: Build meal plans.
-    ☐ STRETCH:
+  PLAN:
+    Build meal plans.
+    current:
+    stretch:
       ☐ Dishes
       ☐ Meals
       ☐ Times
