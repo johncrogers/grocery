@@ -12,7 +12,7 @@ module.exports.insertIngredients = (data) => {
 
 module.exports.selectIngredients = (columns) => {
   console.log(`Selecting rows from ingredients...`);
-  console.log(`  -> using:`, columns);
+  columns ? console.log(`  -> using:`, columns) : columns = {};
   return conn.select(columns).from('ingredients').then((rows) => {
     console.log(`Successfully pulled row data.`);
     return rows;
