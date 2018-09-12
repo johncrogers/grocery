@@ -1,9 +1,9 @@
 const express = require("express");
 const cartRouter = express.Router();
-const model = require('./../../db/models/ingredients.js');
+const models = require('./../../db/models/_models.js');
 
 cartRouter.get('/ingredients', (request, response) => {
-  model.selectIngredients().then((data) => {
+  models.ingredients.selectIngredients().then((data) => {
     response.status(200).json(data);
   }).catch((err) => {
     console.log(`ERROR: GET /cart/ingredients`, err);

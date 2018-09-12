@@ -1,2 +1,1 @@
-import ingredients from './ingredients.js';
-module.exports.ingredients;
+module.exports.ingredients = require('./ingredients.js');
