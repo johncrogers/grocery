@@ -1,0 +1,6 @@
+.DS_Store
+bundle.js
+.dbconnvariables
+/node_modules/
+.env
+.dbtasks

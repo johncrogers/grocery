@@ -45,7 +45,7 @@ class Cart extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div id="Cart">
         <select
           name=""
           id="departmentSelector"

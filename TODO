@@ -3,10 +3,6 @@ TASKS:
 
 BROKEN:
   ☐ REPO:
-    ☐ .gitignore
-      ☐ Don't ignore:
-        ☐ package.json
-        ☐ .gitignore
     ☐ Include a README for getting the repo setup.
     ☐ Modularize the env variables.
 
