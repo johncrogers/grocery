@@ -24,6 +24,16 @@ class View extends React.Component {
           />
         );
 
+      case "Cart":
+        return (
+          <Cart
+            view={this.props.view}
+            user={this.props.user}
+            updateView={this.props.updateView}
+            updateUser={this.props.updateUser}
+          />
+        );
+
       default:
         return (
           <Cart

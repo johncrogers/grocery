@@ -1,5 +1,6 @@
 import React from "react";
 import Dish from "./Dish.jsx";
+import { Card } from "semantic-ui-react";
 class Menu extends React.Component {
   constructor(props) {
     super(props);
@@ -8,12 +9,12 @@ class Menu extends React.Component {
   render() {
     console.log(`Render Menu`, this.props);
     return (
-      <div id="Menu">
-        Menu:
+      <Card.Group itemsPerRow={4} id="Menu">
+        {/* Menu: */}
         {this.props.user.ingredients.map(ingredient => {
           return <Dish data={ingredient} />;
         })}
-      </div>
+      </Card.Group>
     );
   }
 }

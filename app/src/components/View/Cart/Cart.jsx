@@ -1,4 +1,5 @@
 import React from "react";
+import { Table, Tab } from "semantic-ui-react";
 
 class Cart extends React.Component {
   constructor(props) {
@@ -40,13 +41,99 @@ class Cart extends React.Component {
     });
     this.props.updateUser(newUser);
   }
+  componentDidMount() {
+    this.buildDepartmentList(this.props.user.ingredients);
+  }
   componentWillReceiveProps() {
     this.buildDepartmentList(this.props.user.ingredients);
   }
   render() {
     return (
       <div id="Cart">
-        <select
+        <Table>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Shopping List</Table.HeaderCell>
+              <Table.HeaderCell colSpan={2} collapsing>
+                <select
+                  name=""
+                  id="departmentSelector"
+                  onChange={this.handleSelectedDepartmentChange}
+                  value={this.state.selectedDepartment}
+                >
+                  <option value="remove">Select a department...</option>
+                  {this.state.departmentList.map(department => {
+                    return (
+                      <option value={department} key={department}>
+                        {department}
+                      </option>
+                    );
+                  })}
+                </select>
+              </Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            {this.props.user.ingredients.map(ingredient => {
+              if (!this.props.view.department) {
+                return (
+                  <Table.Row>
+                    <Table.Cell>{ingredient.name}</Table.Cell>
+                    <Table.Cell selectable negative collapsing>
+                      <a
+                        href="#"
+                        onClick={() => {
+                          this.removeIngredientFromList(ingredient.name);
+                        }}
+                      >
+                        Skip
+                      </a>
+                    </Table.Cell>
+                    <Table.Cell selectable positive collapsing>
+                      <a
+                        href="#"
+                        onClick={() => {
+                          this.removeIngredientFromList(ingredient.name);
+                        }}
+                      >
+                        Found
+                      </a>
+                    </Table.Cell>
+                  </Table.Row>
+                );
+              } else {
+                if (ingredient.department === this.props.view.department) {
+                  return (
+                    <Table.Row>
+                      <Table.Cell>{ingredient.name}</Table.Cell>
+                      <Table.Cell selectable negative collapsing>
+                        <a
+                          href="#"
+                          onClick={() => {
+                            this.removeIngredientFromList(ingredient.name);
+                          }}
+                        >
+                          Skip
+                        </a>
+                      </Table.Cell>
+                      <Table.Cell selectable positive collapsing>
+                        <a
+                          href="#"
+                          onClick={() => {
+                            this.removeIngredientFromList(ingredient.name);
+                          }}
+                        >
+                          Found
+                        </a>
+                      </Table.Cell>
+                    </Table.Row>
+                  );
+                }
+              }
+            })}
+          </Table.Body>
+        </Table>
+        {/* <select
           name=""
           id="departmentSelector"
           onChange={this.handleSelectedDepartmentChange}
@@ -103,7 +190,7 @@ class Cart extends React.Component {
               }
             })}
           </tbody>
-        </table>
+        </table> */}
       </div>
     );
   }

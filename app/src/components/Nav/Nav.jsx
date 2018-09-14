@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Menu } from "semantic-ui-react";
 class Nav extends React.Component {
   constructor(props) {
     super(props);
@@ -8,20 +8,38 @@ class Nav extends React.Component {
   }
   handleMenuChange(targetView) {
     let newView = this.props.view;
-    newView.show = targetView.target.value;
+    newView.show = targetView;
     this.props.updateView(newView);
   }
+  handleItemClick(name) {
+    this.setState({ activeItem: name }, () => {
+      this.handleMenuChange(name);
+    });
+  }
   render() {
-    // console.log(`Render Nav`, this.props);
+    const { activeItem } = this.state;
     return (
-      <div id="Nav">
-        <select name="Menu" id="Menu" onChange={this.handleMenuChange}>
-          <option value="Cart">Cart</option>
-          <option value="Menu">Menu</option>
-        </select>
-        &nbsp;|&nbsp;
-        {this.props.view.show}
-      </div>
+      <Menu>
+        <Menu.Item
+          name="Cart"
+          active={activeItem === "Cart"}
+          onClick={(e, { name }) => {
+            this.handleItemClick(name);
+          }}
+        >
+          Cart
+        </Menu.Item>
+
+        <Menu.Item
+          name="Menu"
+          active={activeItem === "Menu"}
+          onClick={(e, { name }) => {
+            this.handleItemClick(name);
+          }}
+        >
+          Menu
+        </Menu.Item>
+      </Menu>
     );
   }
 }
