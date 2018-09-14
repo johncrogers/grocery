@@ -1,12 +1,12 @@
-TASKS:
-  ☐ Change note field in ingredients to purchasingNote
-
 BROKEN:
   ☐ REPO:
     ☐ Include a README for getting the repo setup.
     ☐ Modularize the env variables.
 
 IMPROVE:
+  ☐ Update server logging:
+    ☐ Indicate volume of rows affected.
+    ☐ Modularize server messaging system.
 
 FEATURES:
 
@@ -14,7 +14,7 @@ FEATURES:
     PURPOSE: Organize shopping for ingredients.
     current:
       ☐ Skip button:
-        ☐ Make "cart". 
+        ☐ Make "cart".
           Items I've found and will buy.
           Different from Shopping List.
         ☐ Removes item from shopping list || cart
@@ -22,7 +22,7 @@ FEATURES:
     stretch:
       ☐ Volume of ingredient to buy.
 
-  MENU: 
+  MENU:
     PURPOSE: Build dish / meal recipes.
     current:
       ☐ Dishes:

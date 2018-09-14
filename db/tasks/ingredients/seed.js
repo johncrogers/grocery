@@ -1,5 +1,5 @@
 const ingredientSeeds = require('../../_sampleData/ingredients.js').data;
-const ingredientModel = require('../../models/ingredients.js');
+const models = require('../../models/_models.js');
 
-console.log(`Seeding ingredients table...`);
-ingredientModel.insertIngredients(ingredientSeeds);
+console.log(`TASK: Ingredients - seed`);
+models.ingredients.insertIngredients(ingredientSeeds);

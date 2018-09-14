@@ -1,8 +1,8 @@
-console.log(`Aquiring connection to database: GroceryApplication...`);
-console.log(`Host:`, process.env.DB_HOST);
-console.log(`User:`, process.env.DB_USER);
-console.log(`Password:`, process.env.DB_PASSWORD);
-console.log(`Database:`, process.env.DB_DATABASE);
+console.log(`  -> Aquiring connection to database: GroceryApplication...`);
+// console.log(`Host:`, process.env.DB_HOST);
+// console.log(`User:`, process.env.DB_USER);
+// console.log(`Password:`, process.env.DB_PASSWORD);
+// console.log(`Database:`, process.env.DB_DATABASE);
 
 
 module.exports.conn = require('knex')({

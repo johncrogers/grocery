@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "react": "webpack -d --watch",
-    "start": "./.env && nodemon server/index.js"
+    "start": "./.env && nodemon server/index.js",
+    "rebuild:db": "node /Users/johnrogers/code/grocery/db/tasks/ingredients/dropTable.js && node /Users/johnrogers/code/grocery/db/tasks/ingredients/createTable.js && node /Users/johnrogers/code/grocery/db/tasks/ingredients/seed.js && exit"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",

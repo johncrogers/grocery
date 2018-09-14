@@ -1,23 +1,23 @@
-const conn = require('../conn.js').conn;
-
 module.exports.insertIngredients = (data) => {
-  console.log(`Inserting rows into ingredients...`, data);
+  const conn = require('../conn.js').conn;
+  console.log(`  -> Inserting ingredients...`);
   return conn('ingredients').insert(data).then(() => {
-    console.log(`Rows successfully inserted.`);
+    console.log(`  -> Successfully inserted ingredient data.`);
   }).catch((err) => {
-    console.log(`Error occurred when inserting rows. ERR:`, err);
+    console.log(`ERROR: An error occurred when inserting ingredients.`, err);
     return err;
   });
 }
 
 module.exports.selectIngredients = (columns) => {
-  console.log(`Selecting rows from ingredients...`);
+  const conn = require('../conn.js').conn;
+  console.log(`  -> Retrieving ingredients...`);
   columns ? console.log(`  -> using:`, columns) : columns = [];
   return conn.select(columns).from('ingredients').then((rows) => {
-    console.log(`Successfully pulled row data.`);
+    console.log(`  -> Successfully pulled row data.`);
     return rows;
   }).catch((err) => {
-    console.log(`Error occurred when pulling rows. ERR:`, err);
+    console.log(`ERROR: An error occurred when retrieving ingredients.`, err);
     return err;
   });
 }

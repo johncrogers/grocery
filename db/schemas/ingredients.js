@@ -1,27 +1,27 @@
-const conn = require('../conn.js').conn;
-
 module.exports.createTable = () => {
-  console.log(`Running ingredients createTable schema.`);
+  const conn = require('../conn.js').conn;
+  console.log(`  -> Running ingredients createTable schema.`);
   return conn.schema.createTable('ingredients', function (table) {
     table.increments();
     table.string('name');
     table.string('department');
-    table.string('note');
+    table.string('purchasing_note');
     table.decimal('price');
   }).then(() => {
-    console.log(`Table 'ingredients' created.`);
+    console.log(`  -> Table 'ingredients' created.`);
   }).catch((err) => {
-    console.log(`Error while creating table. ERR:`, err);
+    console.log(`ERROR: An error occurred while creating table 'ingredients'.`, err);
   }).finally(() => {
     conn.destroy();
   });
 }
 module.exports.dropTable = () => {
-  console.log(`Running ingredients dropTable schema.`);
+  const conn = require('../conn.js').conn;
+  console.log(`  -> Running ingredients dropTable schema.`);
   return conn.schema.dropTable('ingredients').then(() => {
-    console.log(`Table 'ingredients' dropped.`);
+    console.log(`  -> Table 'ingredients' dropped.`);
   }).catch((err) => {
-    console.log(`Error while dropping table. ERR:`, err);
+    console.log(`ERROR: An error occurred while dropping table 'ingredients'.`, err);
   }).finally(() => {
     conn.destroy();
   });

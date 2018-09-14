@@ -11,11 +11,13 @@ server.use(cors());
 server.use(bodyParser.json());
 server.use(express.static(__dirname + "/../app/dist"));
 server.get("/", (request, response) => {
+  console.log(`GET <BASE PATH>`);
   response.sendFile(path.join(`${__dirname}/../app/dist/index.html`));
 });
 
 server.use('/api/cart', cartRouter);
 
 server.listen(port, function () {
-  console.log(`listening on port ${port}!`);
+  console.log(`SERVER START:`);
+  console.log(`  -> Listening on port ${port}!`);
 });
