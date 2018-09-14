@@ -41,6 +41,34 @@ class Cart extends React.Component {
     });
     this.props.updateUser(newUser);
   }
+  buildIngredientRow(ingredient) {
+    let CartRow = (
+      <Table.Row>
+        <Table.Cell>{ingredient.name}</Table.Cell>
+        <Table.Cell selectable negative collapsing>
+          <a
+            href="#"
+            onClick={() => {
+              this.removeIngredientFromList(ingredient.name);
+            }}
+          >
+            Skip
+          </a>
+        </Table.Cell>
+        <Table.Cell selectable positive collapsing>
+          <a
+            href="#"
+            onClick={() => {
+              this.removeIngredientFromList(ingredient.name);
+            }}
+          >
+            Found
+          </a>
+        </Table.Cell>
+      </Table.Row>
+    );
+    return CartRow;
+  }
   componentDidMount() {
     this.buildDepartmentList(this.props.user.ingredients);
   }
@@ -55,6 +83,7 @@ class Cart extends React.Component {
             <Table.Row>
               <Table.HeaderCell>Shopping List</Table.HeaderCell>
               <Table.HeaderCell colSpan={2} collapsing>
+                Filters:&nbsp;
                 <select
                   name=""
                   id="departmentSelector"
@@ -76,121 +105,15 @@ class Cart extends React.Component {
           <Table.Body>
             {this.props.user.ingredients.map(ingredient => {
               if (!this.props.view.department) {
-                return (
-                  <Table.Row>
-                    <Table.Cell>{ingredient.name}</Table.Cell>
-                    <Table.Cell selectable negative collapsing>
-                      <a
-                        href="#"
-                        onClick={() => {
-                          this.removeIngredientFromList(ingredient.name);
-                        }}
-                      >
-                        Skip
-                      </a>
-                    </Table.Cell>
-                    <Table.Cell selectable positive collapsing>
-                      <a
-                        href="#"
-                        onClick={() => {
-                          this.removeIngredientFromList(ingredient.name);
-                        }}
-                      >
-                        Found
-                      </a>
-                    </Table.Cell>
-                  </Table.Row>
-                );
+                return this.buildIngredientRow(ingredient);
               } else {
                 if (ingredient.department === this.props.view.department) {
-                  return (
-                    <Table.Row>
-                      <Table.Cell>{ingredient.name}</Table.Cell>
-                      <Table.Cell selectable negative collapsing>
-                        <a
-                          href="#"
-                          onClick={() => {
-                            this.removeIngredientFromList(ingredient.name);
-                          }}
-                        >
-                          Skip
-                        </a>
-                      </Table.Cell>
-                      <Table.Cell selectable positive collapsing>
-                        <a
-                          href="#"
-                          onClick={() => {
-                            this.removeIngredientFromList(ingredient.name);
-                          }}
-                        >
-                          Found
-                        </a>
-                      </Table.Cell>
-                    </Table.Row>
-                  );
+                  return this.buildIngredientRow(ingredient);
                 }
               }
             })}
           </Table.Body>
         </Table>
-        {/* <select
-          name=""
-          id="departmentSelector"
-          onChange={this.handleSelectedDepartmentChange}
-          value={this.state.selectedDepartment}
-        >
-          <option value="remove">Select a department...</option>
-          {this.state.departmentList.map(department => {
-            return (
-              <option value={department} key={department}>
-                {department}
-              </option>
-            );
-          })}
-        </select>
-        <table>
-          <tbody>
-            {this.props.user.ingredients.map(ingredient => {
-              if (!this.props.view.department) {
-                return (
-                  <tr key={ingredient.name}>
-                    <td>{ingredient.name}</td>
-                    <td>{ingredient.price}</td>
-                    <td>{ingredient.department}</td>
-                    <td>
-                      <button
-                        onClick={() => {
-                          this.removeIngredientFromList(ingredient.name);
-                        }}
-                      >
-                        Found
-                      </button>
-                    </td>
-                  </tr>
-                );
-              } else {
-                if (ingredient.department === this.props.view.department) {
-                  return (
-                    <tr key={ingredient.name}>
-                      <td>{ingredient.name}</td>
-                      <td>{ingredient.price}</td>
-                      <td>{ingredient.department}</td>
-                      <td>
-                        <button
-                          onClick={() => {
-                            this.removeIngredientFromList(ingredient.name);
-                          }}
-                        >
-                          Found
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                }
-              }
-            })}
-          </tbody>
-        </table> */}
       </div>
     );
   }
