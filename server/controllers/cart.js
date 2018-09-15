@@ -4,7 +4,9 @@ const models = require('./../../db/models/_models.js');
 
 cartRouter.get('/ingredients', (request, response) => {
   console.log(`GET /api/cart/ingredients/`);
-  models.ingredients.selectIngredients().then((data) => {
+  console.log(`  -> query:`, request.query);
+  let query = request.query;
+  models.ingredients.selectIngredients(query).then((data) => {
     console.log(`  -> Request success.`);
     response.status(200).json(data);
   }).catch((err) => {

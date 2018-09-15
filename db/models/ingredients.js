@@ -9,10 +9,19 @@ module.exports.insertIngredients = (data) => {
   });
 }
 
-module.exports.selectIngredients = (columns) => {
+module.exports.selectIngredients = (query, columns) => {
   const conn = require('../conn.js').conn;
   console.log(`  -> Retrieving ingredients...`);
-  columns ? console.log(`  -> using:`, columns) : columns = [];
+  columns ? console.log(`  -> using:`, columns) : columns = '*';
+  if (query) {
+    return conn.select(columns).from('ingredients').where(query).then((rows) => {
+      console.log(`  -> Successfully pulled row data.`);
+      return rows;
+    }).catch((err) => {
+      console.log(`ERROR: An error occurred when retrieving ingredients.`, err);
+      return err;
+    });
+  }
   return conn.select(columns).from('ingredients').then((rows) => {
     console.log(`  -> Successfully pulled row data.`);
     return rows;
