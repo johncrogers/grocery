@@ -9,6 +9,10 @@ module.exports.createTable = () => {
     table.integer('shoppinglist_id');
     table.foreign('shoppinglist_id')
       .references('shoppinglists.id');
+    // Add price_units
+    // Add purchasing_unit
+    // Add purchasing_quantity
+    // Add price
   }).then(() => {
     console.log(`  -> Table 'ingredients_shoppinglists' created.`);
   }).catch((err) => {
@@ -21,7 +25,6 @@ module.exports.dropForeign = () => {
   const conn = require('../conn.js').conn;
   console.log(`  -> Running ingredients_shoppinglists dropForeign schema.`);
   return conn.schema.table('ingredients_shoppinglists', function (table) {
-    // let foreignKeys = ['ingredient_id', 'shoppinglist_id'];
     table.dropForeign('ingredient_id');
     table.dropForeign('shoppinglist_id');
   }).then(() => {

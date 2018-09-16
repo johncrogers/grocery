@@ -17,12 +17,36 @@ IMPROVE:
     ☐ Modularize server messaging system.
 
 FEATURES:
+  USERS:
+    PURPOSE: Allow multiple users to build lists.
+    current:
+      ☐ VIEW:
+        ☐ Create front end model representations.
+        ☐ Create app splash
+        ☐ Create login / signup form.
+      ☐ CONTROLLER:
+        ☐ Client:
+          ☐ Requests
+        ☐ Server:
+          ☐ Routing
+      ☐ MODEL:
+        ☐ Sample seeds.
+        ☐ Tables / models / schemas / tasks / commands
+    stretch:
+      ☐ Encrypt passwords
+      ☐ uuids
+      ☐ authentication middleware
 
   LIST:
     PURPOSE: Organize shopping for ingredients.
     current:
-      ☐ Color code departments
-      ☐ priceunit && volume
+      ☐ ingredients_shoppinglists schema update
+      ☐ table manipulation scripts:
+        Move logging to taskrunner scripts
+        Return promises as properties of module
+      ☐ Create front end model representations.
+      ☐ Determine views
+      Color code departments
     stretch:
       ☐ Volume of ingredient to buy.
 
