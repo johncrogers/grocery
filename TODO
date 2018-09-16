@@ -22,6 +22,7 @@ FEATURES:
     PURPOSE: Organize shopping for ingredients.
     current:
       ☐ Color code departments
+      ☐ priceunit && volume
     stretch:
       ☐ Volume of ingredient to buy.
 
