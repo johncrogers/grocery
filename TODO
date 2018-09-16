@@ -1,3 +1,11 @@
+@critical TODAY:
+  ☐ Skip button:
+    ☐ Make "cart".
+      Items I've found and will buy.
+      Different from Shopping List.
+    ☐ Removes item from shopping list || cart
+  ☐ Move ingredient db request to service
+
 BROKEN:
   ☐ REPO:
     ☐ Include a README for getting the repo setup.
@@ -13,11 +21,6 @@ FEATURES:
   LIST:
     PURPOSE: Organize shopping for ingredients.
     current:
-      ☐ Skip button:
-        ☐ Make "cart".
-          Items I've found and will buy.
-          Different from Shopping List.
-        ☐ Removes item from shopping list || cart
       ☐ Color code departments
     stretch:
       ☐ Volume of ingredient to buy.

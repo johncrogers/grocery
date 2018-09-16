@@ -1,9 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import ingredients from "../../../db/_sampleData/ingredients.js";
 import Nav from "./Nav/Nav.jsx";
 import View from "./View/View.jsx";
-import axios from "axios";
 
 class Index extends React.Component {
   constructor(props) {
@@ -11,7 +9,7 @@ class Index extends React.Component {
     this.state = {
       view: {
         show: "Cart",
-        department: null
+        config: {}
       },
       user: {
         ingredients: []
@@ -19,7 +17,6 @@ class Index extends React.Component {
     };
     this.updateView = this.updateView.bind(this);
     this.updateUser = this.updateUser.bind(this);
-    this.getIngredients = this.getIngredients.bind(this);
   }
   updateView(newView) {
     this.setState({ view: newView });
@@ -27,16 +24,8 @@ class Index extends React.Component {
   updateUser(newUser) {
     this.setState({ user: newUser });
   }
-  getIngredients() {
-    axios.get("/api/cart/ingredients").then(response => {
-      let newUser = this.state.user;
-      newUser.ingredients = response.data;
-      this.updateUser(newUser);
-    });
-  }
-  componentDidMount() {
-    this.getIngredients();
-  }
+
+  componentDidMount() {}
   render() {
     return (
       <div>

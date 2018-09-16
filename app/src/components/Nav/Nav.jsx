@@ -7,7 +7,9 @@ class Nav extends React.Component {
     this.handleMenuChange = this.handleMenuChange.bind(this);
   }
   handleMenuChange(targetView) {
-    let newView = this.props.view;
+    // let newView = this.props.view;
+    let newView = {};
+    newView.config = {};
     newView.show = targetView;
     this.props.updateView(newView);
   }
