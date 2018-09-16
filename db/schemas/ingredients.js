@@ -18,7 +18,7 @@ module.exports.createTable = () => {
 module.exports.dropTable = () => {
   const conn = require('../conn.js').conn;
   console.log(`  -> Running ingredients dropTable schema.`);
-  return conn.schema.dropTable('ingredients').then(() => {
+  return conn.schema.dropTableIfExists('ingredients').then(() => {
     console.log(`  -> Table 'ingredients' dropped.`);
   }).catch((err) => {
     console.log(`ERROR: An error occurred while dropping table 'ingredients'.`, err);

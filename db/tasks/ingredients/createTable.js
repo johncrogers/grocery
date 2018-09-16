@@ -1,3 +1,3 @@
 const ingredients = require('../../schemas/ingredients.js');
-console.log(`TASK: Ingredients - createTable`);
+console.log(`TASK: ingredients - createTable`);
 ingredients.createTable();

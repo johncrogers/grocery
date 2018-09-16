@@ -4,6 +4,10 @@ module.exports.createTable = () => {
   return conn.schema.createTable('shoppinglists', function (table) {
     table.increments();
     table.string('name');
+    table.timestamp('created_at').defaultTo(conn.fn.now());
+    table.integer('user_id');
+    table.foreign('user_id')
+      .references('users.id');
   }).then(() => {
     console.log(`  -> Table 'shoppinglists' created.`);
   }).catch((err) => {
@@ -15,7 +19,7 @@ module.exports.createTable = () => {
 module.exports.dropTable = () => {
   const conn = require('../conn.js').conn;
   console.log(`  -> Running 'shoppinglists' dropTable schema.`);
-  return conn.schema.dropTable('shoppinglists').then(() => {
+  return conn.schema.dropTableIfExists('shoppinglists').then(() => {
     console.log(`  -> Table 'shoppinglists' dropped.`);
   }).catch((err) => {
     console.log(`ERROR: An error occurred while dropping table 'shoppinglists'.`, err);
