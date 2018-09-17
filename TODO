@@ -17,6 +17,16 @@ IMPROVE:
     ☐ Modularize server messaging system.
 
 FEATURES:
+  ARCHITECTURE:
+    APP:
+      ☐ Request API module/s
+      ☐ Data model
+      ☐ Policy
+    SERVER:
+      ☐ API router module/s
+    DB:
+      ☐ 
+
   USERS:
     PURPOSE: Allow multiple users to build lists.
     current:
@@ -30,9 +40,10 @@ FEATURES:
         ☐ Server:
           ☐ Routing
       ☐ MODEL:
-        ☐ Sample seeds.
+        ✔ Sample seeds. @done(18-09-16 20:45)
         ☐ Tables / models / schemas / tasks / commands
     stretch:
+      ☐ user groups
       ☐ Encrypt passwords
       ☐ uuids
       ☐ authentication middleware

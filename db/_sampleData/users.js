@@ -1,7 +1,9 @@
 module.exports.data = [{
-    name: "Kristin"
+    name: "Kristin",
+    password: "1234"
   },
   {
-    name: "Clint"
+    name: "Clint",
+    password: "1234"
   }
 ]
