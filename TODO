@@ -21,11 +21,10 @@ FEATURES:
     APP:
       ☐ Request API module/s
       ☐ Data model
-      ☐ Policy
+      ☐ Admin Application
     SERVER:
       ☐ API router module/s
     DB:
-      ☐ 
 
   USERS:
     PURPOSE: Allow multiple users to build lists.

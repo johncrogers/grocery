@@ -1,14 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Nav from "./Nav/Nav.jsx";
-import View from "./View/View.jsx";
-
+import App from "./App/App.jsx";
+import Splash from "./Splash/Splash.jsx";
 class Index extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       view: {
-        show: "Cart",
+        authorized: false,
         config: {}
       },
       user: {
@@ -27,22 +26,40 @@ class Index extends React.Component {
 
   componentDidMount() {}
   render() {
-    return (
-      <div>
-        <Nav
-          view={this.state.view}
-          user={this.state.user}
-          updateView={this.updateView}
-          updateUser={this.updateUser}
-        />
-        <View
-          view={this.state.view}
-          user={this.state.user}
-          updateView={this.updateView}
-          updateUser={this.updateUser}
-        />
-      </div>
-    );
+    console.log(`Render Index`);
+    console.log(" -> Props: ", this.props);
+    console.log(" -> Index State: ", this.state);
+    switch (this.state.view.authorized) {
+      case true:
+        return (
+          <App
+            view={this.state.view}
+            user={this.state.user}
+            updateView={this.updateView}
+            updateUser={this.updateUser}
+          />
+        );
+
+      case false:
+        return (
+          <Splash
+            view={this.state.view}
+            user={this.state.user}
+            updateView={this.updateView}
+            updateUser={this.updateUser}
+          />
+        );
+
+      default:
+        return (
+          <Splash
+            view={this.state.view}
+            user={this.state.user}
+            updateView={this.updateView}
+            updateUser={this.updateUser}
+          />
+        );
+    }
   }
 }
 ReactDOM.render(<Index />, document.getElementById("root"));
