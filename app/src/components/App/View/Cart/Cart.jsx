@@ -9,9 +9,11 @@ class Cart extends React.Component {
       departmentList: [],
       shoppingList: [],
       skippedList: [],
-      foundList: []
+      foundList: [],
+      selectedStatus: ""
     };
     this.getIngredients = this.getIngredients.bind(this);
+    this.filterIngredients = this.filterIngredients.bind(this);
     this.buildDepartmentList = this.buildDepartmentList.bind(this);
     this.saveIngredients = this.saveIngredients.bind(this);
     // this.removeIngredientFromList = this.removeIngredientFromList.bind(this);
@@ -22,6 +24,7 @@ class Cart extends React.Component {
 
   // MODEL FUNCTIONS
   getIngredients(query) {
+    console.log(`getIngredients(query)`, query);
     let queryString = "/api/cart/ingredients";
     if (query) {
       let count = 0;
@@ -32,20 +35,27 @@ class Cart extends React.Component {
         count < Object.keys(query).length ? (queryString += "&") : null;
       });
     }
-    console.log(`url:`, queryString);
+    console.log(`  -> url:`, queryString);
 
     axios.get(queryString).then(response => {
+      console.log(`  -> response:`, response.data);
       this.filterIngredients(response.data);
       // this.buildDepartmentList(response.data);
     });
   }
   filterIngredients(ingredients) {
+    console.log(`filterIngredients(ingredients)`, ingredients);
     let status = this.state.selectedStatus;
-    ingredients = ingredinents.filter(ingredient => {
+    console.log(`  -> status:`, status);
+    ingredients = ingredients.filter(ingredient => {
       if (status.length) {
         return (status = ingredient.status);
+      } else {
+        return true;
       }
     });
+    console.log(`  -> FILTER PERFORMED`);
+    console.log(`  -> ingredients:`, ingredients);
     this.buildDepartmentList(ingredients);
   }
   buildDepartmentList(ingredients) {
@@ -102,7 +112,10 @@ class Cart extends React.Component {
     this.props.updateUser(newUser);
   }
   handleSelectedDepartmentChange(event) {
-    this.setState({ selectedDepartment: event.target.value }, () => {
+    console.log(`handleSelectedDepartmentChange(event)`, event);
+    let newDepartment = event.target.value;
+    console.log(`  -> newDepartment:`, newDepartment);
+    this.setState({ selectedDepartment: newDepartment }, () => {
       let newView = this.props.view;
       if (this.state.selectedDepartment === "remove") {
         newView.config.department = null;
