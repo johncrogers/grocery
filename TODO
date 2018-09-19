@@ -1,84 +1,132 @@
-@critical TODAY:
-  ☐ Skip button:
-    ☐ Make "cart".
+  Skip button
+    Make "cart".
       Items I've found and will buy.
       Different from Shopping List.
-    ☐ Removes item from shopping list || cart
-  ☐ Move ingredient db request to service
+    Removes item from shopping list || cart
+  Move ingredient db request to service
 
-BROKEN:
-  ☐ REPO:
-    ☐ Include a README for getting the repo setup.
-    ☐ Modularize the env variables.
+BROKEN
+  REPO
+    Include a README for getting the repo setup.
+    Modularize the env variables.
 
-IMPROVE:
-  ☐ Update server logging:
-    ☐ Indicate volume of rows affected.
-    ☐ Modularize server messaging system.
+IMPROVE
+  Update server logging
+    Indicate volume of rows affected.
+    Modularize server messaging system.
 
 FEATURES:
-  ARCHITECTURE:
-    APP:
-      ☐ Request API module/s
-      ☐ Data model
-      ☐ Admin Application
-    SERVER:
-      ☐ API router module/s
-    DB:
+  ARCHITECTURE
+    APP
+      Request API module/s
+      Data model
+      Admin Application
+    SERVER
+      API router module/s
+    DB
 
   USERS:
     PURPOSE: Allow multiple users to build lists.
-    current:
-      ☐ VIEW:
-        ☐ Create front end model representations.
-        ☐ Create app splash
-        ☐ Create login / signup form.
-      ☐ CONTROLLER:
-        ☐ Client:
-          ☐ Requests
-        ☐ Server:
-          ☐ Routing
-      ☐ MODEL:
-        ✔ Sample seeds. @done(18-09-16 20:45)
-        ☐ Tables / models / schemas / tasks / commands
-    stretch:
-      ☐ user groups
-      ☐ Encrypt passwords
-      ☐ uuids
-      ☐ authentication middleware
+    current
+      VIEW
+        Create front end model representations.
+        Create app splash
+        Create login / signup form.
+      CONTROLLER
+        Client
+          Requests
+        Server
+          Routing
+      MODEL
+        Sample seeds.
+        Tables / models / schemas / tasks / commands
+    stretch
+      user groups
+      Encrypt passwords
+      uuids
+      authentication middleware
 
   LIST:
     PURPOSE: Organize shopping for ingredients.
     current:
-      ☐ ingredients_shoppinglists schema update
-      ☐ table manipulation scripts:
+      ☐ Create user.
+        ☐ Seeds
+        ☐ Build Table: users
+        ☐ Build Views:
+          ☐ Login:
+            ☐ Model: users
+              ☐ read
+            ☐ GET /api/users
+            ☐ Form view
+          ☐ Signup:
+            ☐ Model: users
+              ☐ create
+            ☐ POST /api/users
+            ☐ Formview
+        ☐ Shopping list:
+          ☐ Seeds
+          ☐ Build Table: shoppinglists
+          ☐ Build Views:
+            ☐ Create List form:
+              ☐ Model: shoppinglists
+                ☐ create
+              ☐ POST /api/shoppinglists
+              ☐ Form view
+            ☐ Lists list view:
+              ☐ Model: shoppinglists
+                ☐ read
+              ☐ GET /api/shoppinglists
+              ☐ shopping list list view
+              ☐ Model: shoppinglists
+                ☐ delete
+              ☐ DELETE /api/shoppinglists
+              ☐ Delete list button
+              ☐ Model: shoppinglists
+                ☐ update
+              ☐ UPDATE /api/shoppinglists
+              ☐ Form inputs / Save button
+          ☐ Populate list:
+            ☐ Build Table: ingredients_shoppinglists
+            ☐ Build Views:
+              ☐ Model: ingredients_shoppinglists
+                ☐ create
+              ☐ POST /api/ingredients_shoppinglists
+              ☐ Add to List button
+              ☐ Model: ingredients_shoppinglists
+                ☐ read
+              ☐ GET /api/cart
+              ☐ Cart View:
+                ☐ List view
+                ☐ List selector
+      ingredients_shoppinglists schema update
+      table manipulation scripts
         Move logging to taskrunner scripts
         Return promises as properties of module
-      ☐ Create front end model representations.
-      ☐ Determine views
+      Create front end model representations.
+      Determine views
       Color code departments
     stretch:
-      ☐ Volume of ingredient to buy.
+      Volume of ingredient to buy.
 
   MENU:
     PURPOSE: Build dish / meal recipes.
-    current:
-      ☐ Dishes:
-        ☐ Ingredient:
-          ☐ Volume
-          ☐ Prep notes
-    stretch:
-      ☐ Recipe:
-        ☐ Cooking instructions
-        ☐ Cooking planner
+    current
+      Dishes
+        Ingredient
+          Volume
+          Prep notes
+    stretch
+      Recipe
+        Cooking instructions
+        Cooking planner
 
   PREP:
     PURPOSE: Help organize cooking effort.
-    current:
-      ☐ Search by ingredient to see relevant recipe.
-    stretch:
-      ☐ Dishes
-      ☐ Ingredients
+    current
+      Search by ingredient to see relevant recipe.
+    stretch
+      Dishes
+      Ingredients
 
   PLAN:
     PURPOSE: Build meal plans and populate shopping cart.
