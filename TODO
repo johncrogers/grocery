@@ -50,8 +50,11 @@ FEATURES:
     PURPOSE: Organize shopping for ingredients.
     current:
       ☐ Create user.
-        ☐ Seeds
-        ☐ Build Table: users
+        ✔ Build Table: users @done(18-09-18 21:36)
+          ✔ Schema @done(18-09-18 21:36)
+        ✔ Seeds: @done(18-09-18 21:36)
+          ✔ sampleData @done(18-09-18 21:19)
+          ✔ insertion script @done(18-09-18 21:36)
         ☐ Build Views:
           ☐ Login:
             ☐ Model: users
