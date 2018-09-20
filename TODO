@@ -1,4 +1,4 @@
-  Skip button
+ull  Skip button
     Make "cart".
       Items I've found and will buy.
       Different from Shopping List.
@@ -57,14 +57,16 @@ FEATURES:
           ✔ insertion script @done(18-09-18 21:36)
         ☐ Build Views:
           ☐ Login:
-            ☐ Model: users
-              ☐ read
-            ☐ GET /api/users
+            ✔ Model: users @done(18-09-18 21:41)
+              ✔ read @done(18-09-18 21:41)
+            ☐ POST /api/users
+              ☐ login
             ☐ Form view
           ☐ Signup:
             ☐ Model: users
               ☐ create
             ☐ POST /api/users
+              ☐ signup
             ☐ Formview
         ☐ Shopping list:
           ☐ Seeds
