@@ -1,29 +1,17 @@
-ull  Skip button
-    Make "cart".
-      Items I've found and will buy.
-      Different from Shopping List.
-    Removes item from shopping list || cart
-  Move ingredient db request to service
-
-BROKEN
-  REPO
-    Include a README for getting the repo setup.
-    Modularize the env variables.
-
-IMPROVE
-  Update server logging
-    Indicate volume of rows affected.
-    Modularize server messaging system.
-
 FEATURES:
-  ARCHITECTURE
-    APP
+  ARCHITECTURE:
+    repo:
+      ☐ custom linting
+    app:
+      ☐ Sample data service
+        Accessable from frontend. Makes db samples available for development.
       Request API module/s
       Data model
       Admin Application
-    SERVER
-      API router module/s
-    DB
+    server:
+      ☐ Implement Passport
+        API router module/s
+    db
 
   USERS:
     PURPOSE: Allow multiple users to build lists.
@@ -65,18 +53,18 @@ FEATURES:
           ☐ Signup:
             ☐ Model: users
               ☐ create
+              ☐ create default shopping lists
             ☐ POST /api/users
               ☐ signup
             ☐ Formview
         ☐ Shopping list:
-          ☐ Seeds
-          ☐ Build Table: shoppinglists
+          ✔ Seeds @done(18-09-19 11:52)
+          ✔ Build Table: shoppinglists @done(18-09-19 11:50)
           ☐ Build Views:
-            ☐ Create List form:
-              ☐ Model: shoppinglists
-                ☐ create
-              ☐ POST /api/shoppinglists
-              ☐ Form view
+            ☐ Model: shoppinglists
+              ☐ create
+              Hit this route on user generation. Create "cart" and "list". These will be the generic lists for start. Don't need more yet because we're leaning on ealisy being able to clear and fill one cart by groups of data (meals) rather than making a ton of lists that get unorganized.
+            ☐ POST /api/shoppinglists
             ☐ Lists list view:
               ☐ Model: shoppinglists
                 ☐ read
@@ -84,12 +72,15 @@ FEATURES:
               ☐ shopping list list view
               ☐ Model: shoppinglists
                 ☐ delete
+                Use this route to empty cart.
               ☐ DELETE /api/shoppinglists
               ☐ Delete list button
               ☐ Model: shoppinglists
                 ☐ update
               ☐ UPDATE /api/shoppinglists
-              ☐ Form inputs / Save button
+              ☐ Form inputs / Save button:
+                ☐ Break out rows of list into individual form components
+                  They can make individual calls to CRUD.
           ☐ Populate list:
             ☐ Build Table: ingredients_shoppinglists
             ☐ Build Views:
@@ -137,3 +128,24 @@ FEATURES:
     PURPOSE: Build meal plans and populate shopping cart.
     current:
     stretch:
+
+
+
+
+NOTES:
+  Skip button
+    Make "cart".
+      Items I've found and will buy.
+      Different from Shopping List.
+    Removes item from shopping list || cart
+  Move ingredient db request to service
+
+  BROKEN
+    REPO
+      Include a README for getting the repo setup.
+      Modularize the env variables.
+
+  IMPROVE
+    Update server logging
+      Indicate volume of rows affected.
+      Modularize server messaging system.

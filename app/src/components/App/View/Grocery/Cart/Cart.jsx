@@ -1,6 +1,7 @@
 import React from "react";
 import { Table, Tab } from "semantic-ui-react";
 import axios from "axios";
+import data from '/Users/johnrogers/Desktop/Lunch Projects/grocery/db/_sampleData/ingredients.js'
 
 class Cart extends React.Component {
   constructor(props) {
@@ -23,25 +24,28 @@ class Cart extends React.Component {
   }
 
   // MODEL FUNCTIONS
-  getIngredients(query) {
-    console.log(`getIngredients(query)`, query);
-    let queryString = "/api/cart/ingredients";
-    if (query) {
-      let count = 0;
-      queryString += "?";
-      Object.keys(query).forEach(key => {
-        queryString += key + "=" + query[key];
-        count++;
-        count < Object.keys(query).length ? (queryString += "&") : null;
-      });
-    }
-    console.log(`  -> url:`, queryString);
+  // getIngredients(query) {
+  //   console.log(`getIngredients(query)`, query);
+  //   let queryString = "/api/cart/ingredients";
+  //   if (query) {
+  //     let count = 0;
+  //     queryString += "?";
+  //     Object.keys(query).forEach(key => {
+  //       queryString += key + "=" + query[key];
+  //       count++;
+  //       count < Object.keys(query).length ? (queryString += "&") : null;
+  //     });
+  //   }
+  //   console.log(`  -> url:`, queryString);
 
-    axios.get(queryString).then(response => {
-      console.log(`  -> response:`, response.data);
-      this.filterIngredients(response.data);
-      // this.buildDepartmentList(response.data);
-    });
+  //   axios.get(queryString).then(response => {
+  //     console.log(`  -> response:`, response.data);
+  //     this.filterIngredients(response.data);
+  //     // this.buildDepartmentList(response.data);
+  //   });
+  // }
+  getIngredients() {
+    this.filterIngredients(data);
   }
   filterIngredients(ingredients) {
     console.log(`filterIngredients(ingredients)`, ingredients);
