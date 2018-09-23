@@ -1,0 +1,11 @@
+This file is intended to be viewed in VS Code with the Todo+ extension.
+NEW REPO:
+  ☐ npm install
+  ☐ util:
+    ☐ VS Code workspace module:
+      ☐ Commands:
+        ☐ create
+        ☐ open
+  ☐ Database:
+    ☐ Generate local database in ./db/_local
+    ☐ Generate database configuration files.

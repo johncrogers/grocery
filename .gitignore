@@ -3,5 +3,4 @@ bundle.js
 .dbconnvariables
 /node_modules/
 .env
-.dbtasks
 /util/_workspaces/personal/
