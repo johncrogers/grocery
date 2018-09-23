@@ -6,7 +6,9 @@ module.exports.open = () => {
 };
 module.exports.create = () => {
   const fs = require("fs");
-  let fileName = `./_workspaces/personal/${process.argv[3]}.code-workspace`;
+  let fileName = `./util/_workspaces/personal/${
+    process.argv[3]
+  }.code-workspace`;
   let path = process.argv[4];
   let contents = `{
   "folders": [

@@ -4,4 +4,4 @@ bundle.js
 /node_modules/
 .env
 .dbtasks
-/_workspaces/personal/
+/util/_workspaces/personal/
