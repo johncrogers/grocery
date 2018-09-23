@@ -24,7 +24,7 @@ class App extends React.Component {
         </Grid.Row>
 
         <Grid.Row>
-          <Grid.Column width={8}>
+          <Grid.Column>
             <View
               view={this.props.view}
               user={this.props.user}

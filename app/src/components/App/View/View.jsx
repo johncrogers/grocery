@@ -5,9 +5,7 @@ import Grocery from "./Grocery/Grocery.jsx";
 class View extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      // show: "Default"
-    };
+    this.state = {};
   }
   render() {
     // console.log(`Render View`);

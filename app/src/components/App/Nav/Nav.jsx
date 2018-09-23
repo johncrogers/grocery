@@ -32,7 +32,7 @@ class Nav extends React.Component {
           Cart
         </Menu.Item>
 
-        <Menu.Item
+        {/* <Menu.Item
           name="Menu"
           active={activeItem === "Menu"}
           onClick={(e, { name }) => {
@@ -40,7 +40,7 @@ class Nav extends React.Component {
           }}
         >
           Menu
-        </Menu.Item>
+        </Menu.Item> */}
       </Menu>
     );
   }
