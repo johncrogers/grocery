@@ -4,15 +4,15 @@ module.exports.createTable = () => {
   return conn.schema
     .createTable("ingredients_shoppinglists", function(table) {
       table.increments();
-      table.text("status");
+      table.string("status");
       table.integer("ingredient_id");
       table.foreign("ingredient_id").references("ingredients.id");
       table.integer("shoppinglist_id");
       table.foreign("shoppinglist_id").references("shoppinglists.id");
-      // Add price_units
-      // Add purchasing_unit
-      // Add purchasing_quantity
-      // Add price
+      table.decimal("price_per_unit");
+      table.decimal("purchase_volume");
+      table.decimal("relative_unit");
+      table.decimal("relative_volume");
     })
     .then(() => {
       console.log(`  -> Table 'ingredients_shoppinglists' created.`);
