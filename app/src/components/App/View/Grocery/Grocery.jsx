@@ -1,74 +1,133 @@
 import React from "react";
-import { Table, Checkbox, Button, Icon } from "semantic-ui-react";
+import { Table } from "semantic-ui-react";
+import { data } from "./../../../../../../db/_sampleData/ingredients";
 class Grocery extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      departmentList: []
+    };
+    this.getShoppingList = this.getShoppingList.bind(this);
+    this.buildDepartmentList = this.buildDepartmentList.bind(this);
+    // this.markIngredientFound = this.markIngredientFound.bind(this);
+    this.filterIngredients = this.filterIngredients.bind(this);
+    this.buildRows = this.buildRows.bind(this);
+    this.buildDepartmentOptions = this.buildDepartmentOptions.bind(this);
   }
+  // DATA
+  getShoppingList() {
+    let newUser = this.props.user;
+
+    newUser.shoppingList = data;
+    this.buildDepartmentList(newUser.shoppingList);
+    this.props.updateUser(newUser);
+  }
+  buildDepartmentList(ingredients) {
+    let departmentList = [];
+    ingredients.forEach(ingredient => {
+      if (!departmentList.includes(ingredient.department)) {
+        departmentList.push(ingredient.department);
+      }
+    });
+    this.setState({ departmentList: departmentList }, () => {});
+  }
+  // markIngredientFound(ingredient) {
+  //   ingredient.status =
+  //   this.patchIngredient(ingredient);
+  // }
+  filterIngredients(ingredients) {
+    console.log(`filterIngredients(ingredients)`, ingredients);
+    let status = this.props.view.config.Grocery.currentList;
+    console.log(`  -> status:`, status);
+    ingredients = ingredients.filter(ingredient => {
+      if (status.length) {
+        return (status = ingredient.status);
+      } else {
+        return true;
+      }
+    });
+    console.log(`  -> FILTER PERFORMED`);
+    console.log(`  -> ingredients:`, ingredients);
+    return ingredients;
+  }
+  // VIEW
+  // determineListToView(viewOption) {
+  //   if (viewOption === "shoppingList") {
+  //   }
+  // }
+  buildDepartmentOptions() {
+    return this.state.departmentList.map(department => {
+      return <option value={department}>{department}</option>;
+    });
+  }
+  buildRows(ingredients) {
+    console.log(`buildRows:`);
+    console.log(`  -> ingredients?`, ingredients ? true : false);
+    if (ingredients) {
+      ingredients = this.filterIngredients(ingredients);
+      console.log(`  -> ingredients after filter?`, ingredients ? true : false);
+      return ingredients.map(ingredient => {
+        return (
+          <Table.Row key={ingredient.name}>
+            <Table.Cell>{ingredient.name}</Table.Cell>
+            <Table.Cell
+              negative
+              collapsing
+              textAlign="right"
+              onClick={() => {
+                console.log(`Skip!`);
+                // this.markIngredientSkip(ingredient);
+              }}
+            >
+              Skip
+            </Table.Cell>
+            <Table.Cell
+              positive
+              collapsing
+              textAlign="right"
+              onClick={() => {
+                console.log(`Found!`);
+                // this.markIngredientFound(ingredient);
+              }}
+            >
+              Found
+            </Table.Cell>
+          </Table.Row>
+        );
+      });
+    } else {
+      return (
+        <Table.Row>
+          <Table.Cell colSpan="3">Your shopping list is empty.</Table.Cell>
+        </Table.Row>
+      );
+    }
+  }
+  componentDidMount() {
+    this.getShoppingList();
+  }
+
   render() {
-    console.log(`Render Grocery`, this.props);
+    // console.log(`Render Grocery`, this.props);
     return (
-      <Table compact celled definition id="Grocery">
+      <Table striped selectable singleLine unstackable>
         <Table.Header>
           <Table.Row>
+            <Table.HeaderCell>Shopping List</Table.HeaderCell>
             <Table.HeaderCell />
-            <Table.HeaderCell>Name</Table.HeaderCell>
-            <Table.HeaderCell>Registration Date</Table.HeaderCell>
-            <Table.HeaderCell>E-mail address</Table.HeaderCell>
-            <Table.HeaderCell>Premium Plan</Table.HeaderCell>
+            <Table.HeaderCell>
+              <select name="department" id="">
+                {this.buildDepartmentOptions()}
+              </select>
+            </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
         <Table.Body>
-          <Table.Row>
-            <Table.Cell collapsing>
-              <Checkbox slider />
-            </Table.Cell>
-            <Table.Cell>John Lilki</Table.Cell>
-            <Table.Cell>September 14, 2013</Table.Cell>
-            <Table.Cell>jhlilk22@yahoo.com</Table.Cell>
-            <Table.Cell>No</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell collapsing>
-              <Checkbox slider />
-            </Table.Cell>
-            <Table.Cell>Jamie Harington</Table.Cell>
-            <Table.Cell>January 11, 2014</Table.Cell>
-            <Table.Cell>jamieharingonton@yahoo.com</Table.Cell>
-            <Table.Cell>Yes</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell collapsing>
-              <Checkbox slider />
-            </Table.Cell>
-            <Table.Cell>Jill Lewis</Table.Cell>
-            <Table.Cell>May 11, 2014</Table.Cell>
-            <Table.Cell>jilsewris22@yahoo.com</Table.Cell>
-            <Table.Cell>Yes</Table.Cell>
-          </Table.Row>
+          {this.buildRows(
+            this.props.user[this.props.view.config.Grocery.currentList]
+          )}
         </Table.Body>
-
-        <Table.Footer fullWidth>
-          <Table.Row>
-            <Table.HeaderCell />
-            <Table.HeaderCell colSpan="4">
-              <Button
-                floated="right"
-                icon
-                labelPosition="left"
-                primary
-                size="small"
-              >
-                <Icon name="user" /> Add User
-              </Button>
-              <Button size="small">Approve</Button>
-              <Button disabled size="small">
-                Approve All
-              </Button>
-            </Table.HeaderCell>
-          </Table.Row>
-        </Table.Footer>
       </Table>
     );
   }

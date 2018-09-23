@@ -8,7 +8,7 @@ class Index extends React.Component {
     this.state = {
       view: {
         authorized: false,
-        config: {}
+        config: { Grocery: { currentList: "shoppingList" } }
       },
       user: {
         ingredients: []
