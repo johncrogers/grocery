@@ -5,6 +5,7 @@
   "scripts": {
     "react": "webpack -d --watch",
     "start": "./.env && nodemon server/index.js",
+    "ws": "node /Users/johnrogers/code/grocery/_workspaces/_runner.js",
     "db:drop_ingredients": "node /Users/johnrogers/code/grocery/db/tasks/ingredients/dropTable.js",
     "db:create_ingredients": "node /Users/johnrogers/code/grocery/db/tasks/ingredients/createTable.js",
     "db:seed_ingredients": "node /Users/johnrogers/code/grocery/db/tasks/ingredients/seed.js",
