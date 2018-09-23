@@ -10,16 +10,21 @@ class Grocery extends React.Component {
     this.getShoppingList = this.getShoppingList.bind(this);
     this.buildDepartmentList = this.buildDepartmentList.bind(this);
     // this.markIngredientFound = this.markIngredientFound.bind(this);
-    this.filterIngredients = this.filterIngredients.bind(this);
+    // this.markIngredientFound = this.markIngredientFound.bind(this);
     this.buildRows = this.buildRows.bind(this);
     this.buildDepartmentOptions = this.buildDepartmentOptions.bind(this);
   }
   // DATA
   getShoppingList() {
+    // shoppingList is just a list of ingredients_shoppinglists with a status of pending
+    // cart is just a list of ingredients_shoppinglists with a status of found
+    // all pulls every
     let newUser = this.props.user;
 
+    let status = this.props.view.config.Grocery.currentList;
     newUser.shoppingList = data;
     this.buildDepartmentList(newUser.shoppingList);
+
     this.props.updateUser(newUser);
   }
   buildDepartmentList(ingredients) {
@@ -32,24 +37,9 @@ class Grocery extends React.Component {
     this.setState({ departmentList: departmentList }, () => {});
   }
   // markIngredientFound(ingredient) {
-  //   ingredient.status =
-  //   this.patchIngredient(ingredient);
+  //   let newShoppingList = this.props.newUser.shoppingList;
   // }
-  filterIngredients(ingredients) {
-    console.log(`filterIngredients(ingredients)`, ingredients);
-    let status = this.props.view.config.Grocery.currentList;
-    console.log(`  -> status:`, status);
-    ingredients = ingredients.filter(ingredient => {
-      if (status.length) {
-        return (status = ingredient.status);
-      } else {
-        return true;
-      }
-    });
-    console.log(`  -> FILTER PERFORMED`);
-    console.log(`  -> ingredients:`, ingredients);
-    return ingredients;
-  }
+
   // VIEW
   // determineListToView(viewOption) {
   //   if (viewOption === "shoppingList") {
