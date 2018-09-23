@@ -1,17 +1,21 @@
 FEATURES:
   ARCHITECTURE:
     repo:
-      ☐ custom linting
+      custom linting
     app:
-      ☐ Sample data service
+      Sample data service
         Accessable from frontend. Makes db samples available for development.
       Request API module/s
       Data model
       Admin Application
     server:
-      ☐ Implement Passport
+      Implement Passport
         API router module/s
-    db
+    ☐ db:
+      ☐ create local instance
+      ☐ rebuild remote
+      ☐ get migrations going
+      ☐ learn to create db snapshots to revert to
 
   USERS:
     PURPOSE: Allow multiple users to build lists.
@@ -36,6 +40,8 @@ FEATURES:
 
   LIST:
     PURPOSE: Organize shopping for ingredients.
+    don't forget:
+      ☐ ingredients_shoppinglists schema changed. need to rebuild!
     current:
       ☐ Create user.
         ✔ Build Table: users @done(18-09-18 21:36)
