@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "react": "webpack -d --watch",
-    "start": "./.env && nodemon server/index.js",
+    "start:webpack": "webpack -d --watch",
+    "start:server": "./.env && nodemon server/index.js",
     "ws": "node /Users/johnrogers/code/grocery/util/_workspaces/_runner.js",
     "db:drop_ingredients": "node /Users/johnrogers/code/grocery/db/tasks/ingredients/dropTable.js",
     "db:create_ingredients": "node /Users/johnrogers/code/grocery/db/tasks/ingredients/createTable.js",
