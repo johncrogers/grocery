@@ -6,21 +6,7 @@
     "start:webpack": "webpack -d --watch",
     "start:server": "./.env && nodemon server/index.js",
     "ws": "node /Users/johnrogers/code/grocery/util/_workspaces/_runner.js",
-    "db:drop_ingredients": "node /Users/johnrogers/code/grocery/db/tasks/ingredients/dropTable.js",
-    "db:create_ingredients": "node /Users/johnrogers/code/grocery/db/tasks/ingredients/createTable.js",
-    "db:seed_ingredients": "node /Users/johnrogers/code/grocery/db/tasks/ingredients/seed.js",
-    "db:dropForeign_users": "node /Users/johnrogers/code/grocery/db/tasks/users/dropForeign.js",
-    "db:drop_users": "node /Users/johnrogers/code/grocery/db/tasks/users/dropTable.js",
-    "db:create_users": "node /Users/johnrogers/code/grocery/db/tasks/users/createTable.js",
-    "db:seed_users": "node /Users/johnrogers/code/grocery/db/tasks/users/seed.js",
-    "db:dropForeign_shoppinglists": "node /Users/johnrogers/code/grocery/db/tasks/shoppinglists/dropForeign.js",
-    "db:drop_shoppinglists": "node /Users/johnrogers/code/grocery/db/tasks/shoppinglists/dropTable.js",
-    "db:create_shoppinglists": "node /Users/johnrogers/code/grocery/db/tasks/shoppinglists/createTable.js",
-    "db:seed_shoppinglists": "node /Users/johnrogers/code/grocery/db/tasks/shoppinglists/seed.js",
-    "db:dropForeign_ingredients_shoppinglists": "node /Users/johnrogers/code/grocery/db/tasks/ingredients_shoppinglists/dropForeign.js",
-    "db:drop_ingredients_shoppinglists": "node /Users/johnrogers/code/grocery/db/tasks/ingredients_shoppinglists/dropTable.js",
-    "db:create_ingredients_shoppinglists": "node /Users/johnrogers/code/grocery/db/tasks/ingredients_shoppinglists/createTable.js",
-    "db:seed_ingredients_shoppinglists": "node /Users/johnrogers/code/grocery/db/tasks/ingredients_shoppinglists/seed.js"
+    "task": "node /Users/johnrogers/code/grocery/util/tasks/_runner.js"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",

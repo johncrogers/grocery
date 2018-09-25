@@ -1,4 +1,4 @@
-module.exports.insertUsers = data => {
+module.exports.insert = data => {
   const conn = require("../conn.js").conn;
   console.log(`  -> Inserting users...`);
   return conn("users")
@@ -12,7 +12,7 @@ module.exports.insertUsers = data => {
     });
 };
 
-module.exports.selectUsers = (query, columns) => {
+module.exports.select = (query, columns) => {
   const conn = require("../conn.js").conn;
   console.log(`  -> Retrieving users...`);
   columns ? console.log(`  -> using:`, columns) : (columns = "*");
