@@ -1,5 +1,6 @@
+// npm run task section task tableName
 const tasks = {
-  db: require("./db.js")
+  db: require("./db/db.js")
 };
 
 console.log(`TASK RUNNER:`);
