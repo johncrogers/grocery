@@ -1,4 +1,4 @@
-module.exports.testTable = [
+module.exports.testtable = [
   ["name", "string"],
   ["department", "string"],
   ["purchasing_note", "string"],

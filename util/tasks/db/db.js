@@ -21,6 +21,7 @@ module.exports.seed = () => {
 };
 module.exports.generateSchema = () => {
   const fs = require("fs");
+  let schemas = require("./../../../db/schemas/_schemas.js");
 
   let fileName = process.argv[4] + ".js";
   let path = this.paths.schemas;
