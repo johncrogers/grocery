@@ -1,11 +1,11 @@
+console.log(`SERVER INITIALIZE:`);
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const server = express();
-const cartRouter = require("./controllers/cart.js").cartRouter;
-const authRouter = require("./controllers/authRouter.js").authRouter;
+const apiRouter = require("./api/api.js").apiRouter;
 
 const port = process.env.PORT || 8080;
 server.use(cors());
@@ -16,10 +16,8 @@ server.get("/", (request, response) => {
   response.sendFile(path.join(`${__dirname}/../app/dist/index.html`));
 });
 
-server.use("/api/cart", cartRouter);
-server.use("/api/users", authRouter);
+server.use("/api", apiRouter);
 
 server.listen(port, function() {
-  console.log(`SERVER START:`);
   console.log(`  -> Listening on port ${port}!`);
 });

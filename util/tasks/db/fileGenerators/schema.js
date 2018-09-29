@@ -1,5 +1,8 @@
-const tableConfig = require("./tableConfig.js");
+module.exports.importStatement = tableName => {
+  return `module.exports.${tableName} = require("./${tableName}.js");`;
+};
 module.exports.buildRowString = tableName => {
+  const tableConfig = require("../tableConfig.js");
   return tableConfig[tableName]
     .map(column => {
       return `table.${column[1]}("${column[0]}"); `;
