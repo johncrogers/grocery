@@ -1,0 +1,11 @@
+module.exports.ingredients = require("./ingredients.js").ingredientsRouter;
+module.exports.photos = require("./photos.js").photosRouter;
+module.exports.dishes = require("./dishes.js").dishesRouter;
+module.exports.meals = require("./meals.js").mealsRouter;
+module.exports.times = require("./times.js").timesRouter;
+module.exports.ingredients_dishes = require("./ingredients_dishes.js").ingredients_dishesRouter;
+module.exports.dishes_meals = require("./dishes_meals.js").dishes_mealsRouter;
+module.exports.meals_times = require("./meals_times.js").meals_timesRouter;
+module.exports.users = require("./users.js").usersRouter;
+module.exports.shoppinglists = require("./shoppinglists.js").shoppinglistsRouter;
+module.exports.carts = require("./carts.js").cartsRouter;
