@@ -34,7 +34,6 @@ module.exports.tables = {
   shoppinglists: [
     ["name", "string"],
     ["date", "string"],
-    ["ingredient_id", "foreign", "ingredients"],
     ["user_id", "foreign", "users"]
   ],
   carts: [
@@ -42,5 +41,17 @@ module.exports.tables = {
     ["date", "string"],
     ["ingredient_id", "foreign", "ingredients"],
     ["user_id", "foreign", "users"]
+  ],
+  ingredients_shoppinglists: [
+    ["shoppinglist_id", "foreign", "shoppinglists"],
+    ["ingredient_id", "foreign", "ingredients"],
+    ["purchase_quantity", "decimal"],
+    ["prep_note", "string"]
+  ],
+  ingredients_carts: [
+    ["meal_id", "foreign", "meals"],
+    ["ingredient_id", "foreign", "ingredients"],
+    ["purchase_quantity", "decimal"],
+    ["prep_note", "string"]
   ]
 };

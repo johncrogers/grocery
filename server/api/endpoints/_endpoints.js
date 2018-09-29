@@ -9,3 +9,5 @@ module.exports.meals_times = require("./meals_times.js").meals_timesRouter;
 module.exports.users = require("./users.js").usersRouter;
 module.exports.shoppinglists = require("./shoppinglists.js").shoppinglistsRouter;
 module.exports.carts = require("./carts.js").cartsRouter;
+module.exports.ingredients_shoppinglists = require("./ingredients_shoppinglists.js").ingredients_shoppinglistsRouter;
+module.exports.ingredients_carts = require("./ingredients_carts.js").ingredients_cartsRouter;

@@ -12,7 +12,7 @@ NEW REPO:
 
 TODO:
   ☐ Add anti-genesis script
-  ☐ foreign support
-  ☐ mock tables
-  ☐ build app
+  ✔ foreign support @done(18-09-29 02:02)
+  ✔ mock tables @done(18-09-29 02:02)
+  ✔ build app @done(18-09-29 02:02)
   ☐ add seeding
