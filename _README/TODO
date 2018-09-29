@@ -9,3 +9,9 @@ NEW REPO:
   ☐ Database:
     ☐ Generate local database in ./db/_local
     ☐ Generate database configuration files.
+
+TODO:
+  ☐ Add anti-genesis script
+  ☐ foreign support
+  ☐ mock tables
+  ☐ build app
