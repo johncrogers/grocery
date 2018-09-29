@@ -1,5 +1,6 @@
 // npm run task section task tableName
 const tasks = {
+  genesis: require("./genesis/genesis.js"),
   db: require("./db/db.js"),
   api: require("./api/api.js")
 };
