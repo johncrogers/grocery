@@ -20,6 +20,42 @@ module.exports.seed = () => {
   let table = process.argv[4];
   models[table].insert(data[table]);
 };
+module.exports.dropAllTables = () => {
+  const { execSync } = require("child_process");
+  const { tables } = require("./../appConfig.js");
+  console.log(`DROPPING ALL TABLES...`);
+  Object.keys(tables).forEach(table => {
+    execSync(
+      `npm run task db drop ${table}`,
+      { stdio: [0, 1, 2] },
+      (error, stdout, stderr) => {
+        if (error) {
+          console.log(`DROP ERROR:`, err);
+          console.log(stdout);
+          console.log(stderr);
+        }
+      }
+    );
+  });
+};
+module.exports.createAllTables = () => {
+  const { execSync } = require("child_process");
+  const { tables } = require("./../appConfig.js");
+  console.log(`CREATING ALL TABLES...`);
+  Object.keys(tables).forEach(table => {
+    execSync(
+      `npm run task db create ${table}`,
+      { stdio: [0, 1, 2] },
+      (error, stdout, stderr) => {
+        if (error) {
+          console.log(`DROP ERROR:`, err);
+          console.log(stdout);
+          console.log(stderr);
+        }
+      }
+    );
+  });
+};
 module.exports.generateSchema = () => {
   const fs = require("fs");
 
