@@ -5,7 +5,7 @@
   "scripts": {
     "start:webpack": "webpack -d --watch",
     "start:server": "./.env && nodemon server/index.js",
-    "task": "node /Users/johnrogers/code/grocery/util/tasks/_runner.js"
+    "task": "node ./_util/tasks/_runner.js"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
