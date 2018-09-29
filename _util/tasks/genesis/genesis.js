@@ -6,8 +6,7 @@ module.exports.generate = () => {
   const commands = [
     `npm run task db generateSchema ${tableName}`,
     `npm run task db generateModel ${tableName}`,
-    `npm run task api generateEndpoint ${tableName}`,
-    `npm run task db create ${tableName}`
+    `npm run task api generateEndpoint ${tableName}`
   ];
   commands.forEach(command => {
     execSync(command, { stdio: [0, 1, 2] }, (error, stdout, stderr) => {
