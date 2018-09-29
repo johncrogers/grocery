@@ -5,7 +5,12 @@ module.exports.buildRowString = tableName => {
   const { tables } = require("./../../appConfig.js");
   return tables[tableName]
     .map(column => {
-      return `table.${column[1]}("${column[0]}"); `;
+      if (column.length > 2) {
+        return `table.integer("${column[0]}");
+        table.${column[1]}("${column[0]}").references("${column[2]}.id"); \n`;
+      } else {
+        return `table.${column[1]}("${column[0]}"); \n`;
+      }
     })
     .join("");
 };
