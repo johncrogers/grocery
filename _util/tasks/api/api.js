@@ -8,10 +8,10 @@ module.exports.generateEndpoint = () => {
 
   let fileName = process.argv[4] + ".js";
   let contents = endpointBuilder.template(process.argv[4]);
-  console.log(`Creating enpoint file: ${fileName}`);
+  console.log(`Creating endpoint file: ${fileName}`);
   fs.writeFile(this.paths.endpoints + fileName, contents, err => {
     if (err) {
-      console.log(`Error when writing new enpoint file:`, err);
+      console.log(`Error when writing new endpoint file:`, err);
     } else {
       console.log(`  -> Reading _endpoints.js module.`);
       fs.readFile(
