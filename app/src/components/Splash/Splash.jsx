@@ -8,12 +8,7 @@ class Splash extends React.Component {
   render() {
     console.log(`Render Splash`, this.props);
     return (
-      <AccountChoices
-        view={this.props.view}
-        user={this.props.user}
-        updateView={this.props.updateView}
-        updateUser={this.props.updateUser}
-      />
+      <AccountChoices updateApp={this.props.updateApp} App={this.props.App} />
     );
   }
 }

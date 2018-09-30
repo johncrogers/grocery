@@ -6,22 +6,17 @@ class Index extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: {
-        authorized: false,
-        config: { Grocery: { currentList: "shoppingList" } }
-      },
+      view: {},
       user: {
-        ingredients: []
+        authorized: false
       }
     };
-    this.updateView = this.updateView.bind(this);
-    this.updateUser = this.updateUser.bind(this);
+    this.updateApp = this.updateApp.bind(this);
   }
-  updateView(newView) {
-    this.setState({ view: newView });
-  }
-  updateUser(newUser) {
-    this.setState({ user: newUser });
+  updateApp(newConfig) {
+    this.setState(newConfig, () => {
+      localStorage.setItem("appData", JSON.stringify(newConfig));
+    });
   }
 
   componentDidMount() {}
@@ -29,36 +24,15 @@ class Index extends React.Component {
     console.log(`Render Index`);
     console.log(" -> Props: ", this.props);
     console.log(" -> Index State: ", this.state);
-    switch (this.state.view.authorized) {
+    switch (this.state.user.authorized) {
       case true:
-        return (
-          <App
-            view={this.state.view}
-            user={this.state.user}
-            updateView={this.updateView}
-            updateUser={this.updateUser}
-          />
-        );
+        return <App updateApp={this.updateApp} App={this.state} />;
 
       case false:
-        return (
-          <Splash
-            view={this.state.view}
-            user={this.state.user}
-            updateView={this.updateView}
-            updateUser={this.updateUser}
-          />
-        );
+        return <Splash updateApp={this.updateApp} App={this.state} />;
 
       default:
-        return (
-          <Splash
-            view={this.state.view}
-            user={this.state.user}
-            updateView={this.updateView}
-            updateUser={this.updateUser}
-          />
-        );
+        return <Splash updateApp={this.updateApp} App={this.state} />;
     }
   }
 }

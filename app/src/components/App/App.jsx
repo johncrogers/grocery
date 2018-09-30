@@ -14,25 +14,15 @@ class App extends React.Component {
       <Grid id="App">
         <Grid.Row>
           <Grid.Column>
-            <Nav
-              view={this.props.view}
-              user={this.props.user}
-              updateView={this.props.updateView}
-              updateUser={this.props.updateUser}
-            />
+            <Nav updateApp={this.props.updateApp} config={this.props.config} />
           </Grid.Column>
         </Grid.Row>
 
-        <Grid.Row>
+        {/* <Grid.Row>
           <Grid.Column>
-            <View
-              view={this.props.view}
-              user={this.props.user}
-              updateView={this.props.updateView}
-              updateUser={this.props.updateUser}
-            />
+            <View updateApp={this.props.updateApp} config={this.props.config} />
           </Grid.Column>
-        </Grid.Row>
+        </Grid.Row> */}
       </Grid>
     );
   }
