@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 
 const server = express();
 const apiRouter = require("./api/api.js").apiRouter;
+const appRouter = require("./app/app.js").appRouter;
 
 const port = process.env.PORT || 8080;
 server.use(cors());
@@ -17,6 +18,7 @@ server.get("/", (request, response) => {
 });
 
 server.use("/api", apiRouter);
+server.use("/app", appRouter);
 
 server.listen(port, function() {
   console.log(`  -> Listening on port ${port}!`);
