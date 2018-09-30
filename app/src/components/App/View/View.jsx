@@ -1,6 +1,7 @@
 import React from "react";
 import Menu from "./Menu/Menu.jsx";
 import Grocery from "./Grocery/Grocery.jsx";
+import Admin from "./Admin/Admin.jsx";
 
 class View extends React.Component {
   constructor(props) {
@@ -22,6 +23,16 @@ class View extends React.Component {
           />
         );
 
+      case "Admin":
+        return (
+          <Admin
+            view={this.props.view}
+            user={this.props.user}
+            updateView={this.props.updateView}
+            updateUser={this.props.updateUser}
+          />
+        );
+
       case "Grocery":
         return (
           <Grocery
@@ -34,7 +45,7 @@ class View extends React.Component {
 
       default:
         return (
-          <Grocery
+          <Admin
             view={this.props.view}
             user={this.props.user}
             updateView={this.props.updateView}
