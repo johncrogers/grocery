@@ -1,11 +1,13 @@
 import React from "react";
 import { Segment, Button, Divider, Form } from "semantic-ui-react";
-import api from "./../../../resources/api.js";
 class AccountChoices extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.updateApp = this.updateApp.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.attemptAuth = this.attemptAuth.bind(this);
+    this.attemptSignup = this.attemptSignup.bind(this);
   }
   updateApp() {
     let newConfig = this.props.App;
@@ -16,12 +18,34 @@ class AccountChoices extends React.Component {
     this.setState({ [name]: value });
   }
   attemptAuth() {
-    api;
+    this.props.App.resources.app
+      .postRequest("/auth/login", {
+        username: this.state.username,
+        password: this.state.password
+      })
+      .then(response => {
+        console.log(`response:`, response);
+      })
+      .catch(err => {
+        console.log(`Auth Error:`, err);
+      });
+  }
+  attemptSignup() {
+    this.props.App.resources.app
+      .postRequest("/auth/signup", {
+        username: this.state.username,
+        password: this.state.password
+      })
+      .then(response => {
+        console.log(`response:`, response);
+      })
+      .catch(err => {
+        console.log(`Auth Error:`, err);
+      });
   }
 
   render() {
     console.log(`Render AccountChoices`, this.props);
-    // const { value } = this.state;
     return (
       <Segment padded id="AccountChoices">
         <Form>
@@ -39,38 +63,23 @@ class AccountChoices extends React.Component {
           />
         </Form>
         <Divider horizontal>And</Divider>
-        <button
-          onClick={() => {
-            console.log(this.state);
-          }}
-        >
-          State
-        </button>
-        <button
-          onClick={() => {
-            localStorage.setItem("user", JSON.stringify(this.state));
-          }}
-        >
-          Set localStorage
-        </button>
-        <button
-          onClick={() => {
-            console.log(JSON.parse(localStorage.getItem("user")));
-          }}
-        >
-          View localStorage
-        </button>
         <Button
           primary
           fluid
           onClick={() => {
-            this.updateApp();
+            this.attemptAuth();
           }}
         >
           Login
         </Button>
         <Divider horizontal>Or</Divider>
-        <Button secondary fluid>
+        <Button
+          secondary
+          fluid
+          onClick={() => {
+            this.attemptSignup();
+          }}
+        >
           Sign Up
         </Button>
       </Segment>

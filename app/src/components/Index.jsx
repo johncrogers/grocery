@@ -9,6 +9,10 @@ class Index extends React.Component {
       view: {},
       user: {
         authorized: false
+      },
+      resources: {
+        api: require("./../resources/api.js"),
+        app: require("./../resources/app.js")
       }
     };
     this.updateApp = this.updateApp.bind(this);
